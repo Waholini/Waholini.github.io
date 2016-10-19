@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+var nedtelling = Nedtelling(stopp);
+nedtelling.tellNed(10);
+
+var knapp = Knapp('Prøv igjen');
+knapp.onclick = start;
+
+
+var poeng = Poeng();
+var ball = Ball();
+
+ball.onclick = poeng.øk;
+
+function stopp () {
+  ball.skjul();
+  knapp.vis();
+}
+
+function start () {
+  poeng.nullstill();
+  nedtelling.tellNed(10);
+  ball.vis();
+  knapp.skjul();
+}
+
+
+
+
+setInterval(function () {
+var x = Math.random() * 80 + '%';
+var y = Math.random() * 80 + '%';
+
+  ball.posisjon(x, y);
+  
+}, 2000);
+
+
+
+function Ball() {
+ var el = document.createElement('img');
+
+ el.src = "angrycat.png";
+ el.style.position = 'fixed';
+ document.body.appendChild(el);
+  
+ el.posisjon = function (x,y)  {
+   el.style.left = x;
+   el.style.top = y;
+   };
+ 
+  el.skjul = function () {
+    el.style.display = 'none';
+  };
+  
+  el.vis = function () {
+    el.style.display = '';
+  };
+  
+  return el;
+  
+}
+
+function Poeng() {
+  var el = document.createElement('div');
+  
+  // CSS til "el"
+  el.style.position = 'fixed';
+  el.style.bottom = '5px';
+  el.style.left = '8px';
+  el.style.padding = '5px';
+  el.style.backgroundColor = 'black';
+  el.style.color = 'white';
+  
+  // Viser poengsum på skjermen, samt lager variabelen "_poeng"
+  var _poeng = 0;
+  el.innerHTML = _poeng + ' poeng';
+  document.body.appendChild(el);
+
+  // To funksjoner som øker eller nullstiller poengene
+  el.øk = function () {
+    _poeng += 100;
+    el.innerHTML = _poeng + ' poeng';
+  };
+  el.nullstill = function () {
+    _poeng = 0;
+    el.innerHTML = _poeng + ' poeng';
+  };
+
+  return el;
+}
+function Nedtelling (ferdig) {
+  var el = document.createElement('div');
+  
+  // CSSen til elementet "el"
+  el.style.position = 'fixed';
+  el.style.left = '0';
+  el.style.bottom = '0';
+  el.style.height = '100%';
+  el.style.width = '3px';
+  el.style.backgroundColor = 'red';
+  document.body.appendChild(el);
+
+  // Regner ut prosenten av hvor lang tid det er igjen
+  function prosent (slutt, tid) {
+    return (slutt - Date.now()) / tid / 10;
+  }
+  
+  // Funksjon som teller ned og stopper når den har kommet til null
+  el.tellNed = function (tid) {
+    var slutt = Date.now() + tid * 1000;
+    var intervall = setInterval(tegn, 20);
+    
+    // Tegner streken på venstre side til tiden er ute
+    function tegn () {
+      var p = prosent(slutt, tid);
+      if (p < 0) {
+        el.style.height = '0%';
+        clearInterval(intervall);
+        ferdig();
+      }
+      el.style.height = p + '%';
+    }
+  }
+
+  return el;
+}
+
+function Knapp(tekst) {
+  var el = document.createElement('button');
+  el.style.display = 'none';
+  el.innerText = tekst;
+  el.style.position = 'fixed';
+  el.style.top = '50%';
+  el.style.left = '50%';
+  el.style.padding = '20px';
+  el.style.border = 'solid 1px';
+  document.body.appendChild(el);
+
+  el.skjul = function () {
+    el.style.display = 'none';
+  };
+  el.vis = function () {
+    el.style.display = '';
+
+    var w = el.offsetWidth / 2;
+    var h = el.offsetHeight / 2;
+    el.style.marginLeft = '-' + w + 'px';
+    el.style.marginTop = '-' + h + 'px';
+  };
+
+  return el;
+}
+
+
+</script>
+</body>
+</html>
