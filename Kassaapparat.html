@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>kassaapparat</title>
+</head>
+<body>
+
+<p id="txtKvittering"></p>
+<script>
+    var txtKvittering = document.getElementById("txtKvittering");
+    var kvitteringArray = [120,99,30,44];
+    var i = 0;
+    var sum = 0;
+    while(i < kvitteringArray.length) {
+        sum = sum + kvitteringArray[i];
+        i++;
+    }
+    txtKvittering.innerHTML = "Sum varer: " + sum + "kr. Velkommen igjen!";
+
+ </script>
+    
+</body>
+</html>
