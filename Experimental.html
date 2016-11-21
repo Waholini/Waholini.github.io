@@ -1,0 +1,108 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Experimental</title>
+</head>
+<body>
+
+    <div style="font-size:40px"> Lekse for i dag.
+        </div>
+    
+    <h4 id="lekseID"></h4>
+
+    <p id="KontaktID"> Vist du strever, kan du ta kontakt med: </p>
+
+    <p id="P-ID"> </p>
+
+    <button id="ButtonElement"></button>
+
+
+    
+    
+    
+    
+    
+    
+    
+    <script>
+        var lekse = document.getElementById("lekseID");
+        var Kontakt = document.getElementById("KontaktID");
+        var P = document.getElementById("P-ID");
+        var button = document.getElementById("ButtonElement");
+
+        
+        function LekseE(sider) {
+            lekse.innerHTML += "<h4>Side:" + sider + "</h4>";
+         
+        }
+
+        LekseE("98")
+        LekseE("102")
+        LekseE("105")
+        LekseE("109")
+        LekseE("111")
+        
+        function KontaktE(fornavn,etternavn,telefon) {
+            Kontakt.innerHTML += "<p>Fornavn:" + fornavn + "</p>";
+            Kontakt.innerHTML += "<p>Etternavn:" + etternavn + "</p>";
+            Kontakt.innerHTML += "<p>Telefon:" + telefon + "</p>";
+        }
+
+        KontaktE("Arve","Seljebu","345223414");
+
+        function f(x) {
+            return 3*x;
+    
+          
+        }
+         // f(2) = 6, F is increased by 3 each time you add +1 to X. So if X = 6, F = 18. 
+        console.log(f (2) );
+
+        function finnAreal(w,h) {
+
+        }
+
+        function changeBodyStyle(Bakgrunnsfarge,Tekstfarge,Fontsize) {
+           document.body.style.backgroundColor = Bakgrunnsfarge;
+           document.body.style.color = Tekstfarge;
+           document.body.style.fontSize = Fontsize + "%";
+      }
+
+      changeBodyStyle("DarkOrange","Black",120);
+
+      function makeDiv(tekst,bredde,bakgrunnsfarge,tekstfarge) {
+          document.body.innerHTML += `<div style="
+            width: ${bredde}; 
+            background-color: ${bakgrunnsfarge};
+            color: ${tekstfarge}">
+            ${tekst} </div>`;
+      }
+
+      (function(){
+          var fornavn ="Wah";
+          var etternavn ="Olini";
+        function ShowFullName(){
+            document.write(fornavn +" "+ etternavn);
+        }      
+        ShowFullName();
+      })
+      ();
+
+
+
+button.onclick = function(){
+    alert("You pressed a button.");
+}
+
+function (f) {
+    f = 1 + x*3;
+}
+
+function (g) {
+    g = 1 - x*3;
+}
+
+
+        </script>
+</body>
+</html>
