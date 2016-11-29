@@ -1,0 +1,70 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="WhatNumber"> </p>
+
+    <p id="Greeting"> </p>
+
+    <p id="Bank"> </p>
+
+
+
+   <h4> Liste av ting. </h4>
+    <ul id="Liste"> </ul>
+    
+    <script>
+        var Greeting = document.getElementById('Greeting');
+        var WhatNumber = document.getElementById('WhatNumber');
+        var Bank = document.getElementById('Bank');
+        var Liste = document.getElementById('Liste');
+        
+        function Greet(Name) {
+          return "Hello there, " + Name + "." + "<br>";
+        }
+
+        Greeting.innerHTML += Greet("Wah");
+        Greeting.innerHTML += Greet("Jeezoz");
+        
+        Number = 0;
+
+        function ZeroOrNot() {
+          if(Number > 0) {
+               return
+              WhatNumber.innerHTML += ("The number is larger than 0.");
+          }
+          else if(Number < 0) {
+               return
+              WhatNumber.innerHTML += ("The number is smaller than 0.");
+          }
+
+          else {
+              return
+             WhatNumber.innerHTML += ("The number is 0.");
+          }
+        }        
+
+    saldo = 10000
+       
+       function MiniBank(belop) {
+           if(saldo < belop) {
+               return"Du har ikke dekning på kontoen.";
+           }
+
+        saldo = saldo - belop
+        return "Du har tatt ut kr " + belop + ". Ny saldo er kr " + saldo + ".<br>";
+       }
+        
+         function NewPoint(PointName) {
+        return "<li>" + PointName + "</li>";
+    }
+
+Liste.innerHTML += NewPoint("WarioWare");
+        
+        
+        </script>
+</body>
+</html>
