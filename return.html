@@ -29,29 +29,30 @@
         Greeting.innerHTML += Greet("Wah");
         Greeting.innerHTML += Greet("Jeezoz");
         
-        Number = 0;
 
-        function ZeroOrNot() {
+        function ZeroOrNot(Number) {
           if(Number > 0) {
-               return
-              WhatNumber.innerHTML += ("The number is larger than 0.");
+            return "The number is larger than 0.";
           }
           else if(Number < 0) {
-               return
-              WhatNumber.innerHTML += ("The number is smaller than 0.");
+              return "The number is smaller than 0.";
           }
 
           else {
-              return
-             WhatNumber.innerHTML += ("The number is 0.");
+            return "The number is 0.";
           }
-        }        
+        }     
+
+
+ZeroOrNot(2);   
+ZeroOrNot(-5);
+ZeroOrNot(0);
 
     saldo = 10000
        
        function MiniBank(belop) {
            if(saldo < belop) {
-               return"Du har ikke dekning på kontoen.";
+               return "Du har ikke dekning på kontoen.";
            }
 
         saldo = saldo - belop

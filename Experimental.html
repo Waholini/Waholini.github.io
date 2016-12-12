@@ -16,6 +16,10 @@
 
     <button id="ButtonElement"></button>
 
+    <canvas style="border-style:solid;" id="canvas"> </canvas>
+    
+    <canvas style="border-style:solid;" id="canvas2"> </canvas>
+
 
     
     
@@ -29,6 +33,10 @@
         var Kontakt = document.getElementById("KontaktID");
         var P = document.getElementById("P-ID");
         var button = document.getElementById("ButtonElement");
+        var canvas = document.getElementById("canvas");
+        var canvas2 = document.getElementById("canvas2");
+        var ctx = canvas.getContext("2d");
+        var ctx2 = canvas2.getContext("2d");
 
         
         function LekseE(sider) {
@@ -94,18 +102,45 @@ button.onclick = function(){
     alert("You pressed a button.");
 }
 
-function f (x) {
-   return 1 + x*3;
+function f (Z) {
+   return 1 + Z*3;
 }
 
-function g (x) {
-    return 1 - x*3;
+function g (Z) {
+    return 1 - Z*3;
 }
 
-function h (x) {
-    return Math.pox(x, 2);
+function h (Z) {
+    return Math.pox(Z, 2);
 }
 
+DinKonto = 10000
+
+function visBetaling(Pris) {
+    rabatt = 0.8
+    tilbudspris = Pris * rabatt
+    rabattPris = Pris * 0.2
+    return "Prisen er " + Pris + " kr. Uten rabatt, den er " + tilbudspris + " kr med rabatt. Rabatten var " + rabattPris + " Kr."
+
+}
+
+totalBredde = 0;
+
+totalHoyde = 0;
+
+function tegnFirkant(x, y, bredde, hoyde) {
+    ctx.rect(x, y, bredde, hoyde);
+    ctx.stroke();
+    totalBredde = totalBredde + bredde;
+    totalHoyde = totalHoyde + hoyde;
+}
+
+tegnFirkant(0, 0, 10, 10);
+tegnFirkant(10, 10, 20, 20);
+tegnFirkant(200, 50, 30, 30);
+
+ctx2.rect(0, 0, totalBredde, totalHoyde);
+ctx2.stroke();
 
         </script>
 </body>

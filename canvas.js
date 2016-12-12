@@ -1,4 +1,4 @@
-
+var color = document.getElementById("color");
 
 var canvas = document.getElementById("canvas");
         
@@ -62,3 +62,8 @@ for (var i = 0; i < amount; i += 1) {
 
         ctx.stroke()
 }
+
+color.onchange = function (evt) {
+    ctx.fillStyle = evt.target.value;
+}
+ 
