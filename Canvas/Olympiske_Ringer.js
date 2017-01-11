@@ -29,29 +29,25 @@ function downY () {
     y = y + 50;
 }
 
+function DefineCircle (Color, Up) {
+  ctx.strokeStyle = Color;
+  rightX();
+  rightX();
+  if (Up === true) {
+      upY();
+  }
+  else {
+      downY();
+  }
+  makeCircle();
+}
 ctx.strokeStyle="blue";
 makeCircle();
 
-ctx.strokeStyle="yellow";
-rightX();
-rightX();
-downY();
-makeCircle();
+ DefineCircle("yellow", false);
 
-ctx.strokeStyle="black";
-rightX();
-rightX();
-upY();
-makeCircle();
+ DefineCircle("black", true);
 
-ctx.strokeStyle="green";
-rightX();
-rightX();
-downY();
-makeCircle();
+ DefineCircle("green", false);
 
-ctx.strokeStyle="red";
-rightX();
-rightX();
-upY();
-makeCircle();
+DefineCircle("red", true);

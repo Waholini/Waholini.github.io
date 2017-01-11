@@ -1,0 +1,20 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eksempel S. 120</title>
+</head>
+<body>
+    <button id="btnVisBilde"> Vis bilde </button>
+    <div id="info"> </div>
+     <script>
+         var btnVisBilde = document.getElementById("btnVisBilde");
+
+         var info = document.getElementById("info");
+
+         btnVisBilde.onclick = function() {
+             info.innerHTML = "<img src=../angrycat.png>";
+         }
+        </script>
+    
+</body>
+</html>

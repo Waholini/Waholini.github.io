@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eksempel S. 122</title>
+
+     <style>
+         #sirkel {
+          width: 50px;
+          height: 50px;
+          border-style: solid;
+          border-width: 5px;
+          border-radius: 50%;
+          translation: 1s;
+          }
+
+        body {
+            background-color: forestgreen;
+        }
+      </style>
+</head>
+<body>
+    <div id="sirkel"> </div>
+    <script>
+       
+        var sirkel = document.getElementById("sirkel");
+        var x,y;
+        sirkel.onclick = function(){
+             x = Math.random() *window.innerWidth -60;
+             y = Math.random() *window.innerHeight /2;
+            sirkel.style.marginLeft = x;
+            sirkel.style.marginTop = y;
+            var radius = Math.random() *300;
+
+            if (radius <20) {
+                radius = 20;
+            }
+            
+            sirkel.style.width = radius;
+            sirkel.style.height = radius;
+        }
+
+        setInterval(function() {
+            y +=4;
+            if (y>window.innerHeight) {
+                y = 0;
+            }
+            sirkel.style.marginTop = y;
+        } ,20)
+    
+     
+     </script>
+    
+</body>
+</html>
